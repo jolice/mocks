@@ -1,18 +1,22 @@
 language: java
+
 sudo: false
 
 dist: trusty
 
 jdk:
-  - openjdk8
+- openjdk8
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+
 
 addons:
   sonarcloud:
     organization: "riguron"
-    token: "eIFWmXVkXIX7CtIW+EmM4+BRCNI9xAPV66ar8G5nl+rjjNvGQyyWrTE9+1iSmlw2wtWg/kQm+SZkeYrICTxliLetT1Dq3KZakFydfwvFjeNaZk6lWLaOFrxsPPatB09cERIrLXeTTtFRoLjiaqgVx2gQhkiS5lBtfZIWkKgi68ZwYHRqJrOrmCBmTLOJOMQ/zbp3igRJjDgBCg22D44vqTnhUo92k4hjsOk0o7qGFbTgQ0jn2orZhzzO5KhQBxUob85WS3/NE75NqP7JK8wsMefO9ILa44cGwSnvhwKPWvnkxV/MXDMOerQC0fnC+a1QZaFBYXBRTsEkI9mApKZk5d+kxdSd1UQFvQs+2NyMnaHV4xG4NjpdUbg2LXSqYCsXzuQcL3CfxT5hVJisduCm9ZmiWSDSCqQA+rxe7sxPzTUWrH3Ta9M20hDubtzeuVCjrx3UWP+P+Wa8pGwps2qK8RMBbo934jJqpzb8/2PJaMPvBNw7UwUcPQ66WHJjeP5QSX5VtulskK+JZGecsf2JFdCwRTYCgRVauZdH9mT8OpN5W2OK+oApXJgbGZ/4++MCIew6AcXvMBpBA16aE1QmroNeDY1B3II1ThDmndiG3eUClOh7jwmKu4Ih+WMmBo6qPj0TQ3DYaE0Jt+inkpHpm1BvMITYQz2BllbhvCkBepw="
+    token:
+      secure: "hGjXvCrea8wb4P2SeEjMQnRuKy+mARiy3h0ezHdo1jOEi59maL25T5gAMsRSIofRjUuM+/wzP4n7Tf33IvpGewLNznZKwkb3p3ggrG1AjvzFLFs+DhjtTsAj84hmFkO4g3PWy4izttZNcO73t67+pIVfB5QmRfWVfj8mFdGKkHzhAp4p66K9qPG1jZaSI/L89oEWI2NxpIGKRzQ9tq5lEmSZqUDOHfcqZeUoT6ARqgYqwdcwwS/Yv4ol2gxAK9NVgUqJQjN5wNY/KM4PEl82n0XRWnvxDWf7VWvpB2ZJpyGSmTn+REFd+P6H/FunbTlVLorFzhL/dtdIVSiaWF5fgLwlvbmRDfzWh5jcqajZCgvc3CKP0LydLGOBePgNwc6jKsca5RUWqDeF4rlSzktWipPX38DonFRkAltKa8bW2kuQzV5+hRAhSAdWofFuU0o6FLHjxIiuBjLv/qhNU3x54TSGqz/MKhyUfRwSQeVmjxHdGQi2Q16g/FY3qvJiXi83li0NKtr6tuxTzeDVC6umCzPBZh+WRc3uBrApwyERTyIoBOqD4piTGkYGzJMLAhFyDIPfMM3V5lUihqfyKER3syHf72ZQ9qNdCD/QMWKAiTE8vuuvFvIsWkolNvGETlG83EskT/JyA3p0tRNR/bG+joHnc974Qqfrf7dR98r4v1E=""
+
 
 
 script:
