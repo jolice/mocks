@@ -14,13 +14,10 @@ public enum MatcherCapture {
         this.arguments.add(matcher);
     }
 
-    public List<ArgumentMatcher<?>> getAll() {
-        return Collections.unmodifiableList(new ArrayList<>(this.arguments));
-    }
-
-    public void reset() {
+    public List<ArgumentMatcher<?>> popAll() {
+        List<ArgumentMatcher<?>> matchers = Collections.unmodifiableList(new ArrayList<>(this.arguments));
         this.arguments.clear();
+        return matchers;
     }
-
 
 }

@@ -2,6 +2,7 @@ package io.riguron.mocks.verify;
 
 import io.riguron.mocks.invocation.ArgumentMatcherEvaluation;
 import io.riguron.mocks.invocation.Invocation;
+import io.riguron.mocks.matcher.ArgumentMatcher;
 import io.riguron.mocks.matcher.MatcherCapture;
 import io.riguron.mocks.proxy.InvocationInterceptor;
 
@@ -29,13 +30,13 @@ public final class Verification {
             Map<Method, Map<Invocation, Integer>> data = invocations.getOrDefault(object, Collections.emptyMap());
             Map<Invocation, Integer> invocationsForMethod = data.getOrDefault(method, Collections.emptyMap());
 
+            List<ArgumentMatcher<?>> argumentMatchers = matcherCapture.popAll();
             Optional<Map.Entry<Invocation, Integer>> previousInvocation = invocationsForMethod
                     .entrySet()
                     .stream()
-                    .filter(x -> new ArgumentMatcherEvaluation(matcherCapture.getAll(), x.getKey()).evaluate())
+                    .filter(x -> new ArgumentMatcherEvaluation(argumentMatchers, x.getKey()).evaluate())
                     .findFirst();
 
-            matcherCapture.reset();
 
             int times = previousInvocation.map(Map.Entry::getValue).orElse(0);
 

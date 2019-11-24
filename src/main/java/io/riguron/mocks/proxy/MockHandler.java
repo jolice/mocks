@@ -68,11 +68,10 @@ public class MockHandler implements InvocationHandler {
     }
 
     private void addData(Method method, Answer<?> answer) {
-        CallStubbing callStubbing = new CallStubbing(answer, matcherCapture.getAll());
+        CallStubbing callStubbing = new CallStubbing(answer, matcherCapture.popAll());
         Set<CallStubbing> data = this.configuration.computeIfAbsent(method, x -> new HashSet<>());
         data.remove(callStubbing);
         data.add(callStubbing);
-        matcherCapture.reset();
         stubbing.discard();
     }
 
