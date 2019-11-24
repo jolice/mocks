@@ -1,6 +1,5 @@
 package io.riguron.mocks.exception.matcher;
 
-import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 public abstract class InvalidUseOfMatchersException extends RuntimeException {

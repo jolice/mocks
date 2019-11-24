@@ -5,8 +5,6 @@ import io.riguron.mocks.proxy.MockHandler;
 import lombok.Value;
 import lombok.experimental.Delegate;
 
-import java.lang.reflect.Method;
-
 @Value
 public class StubbingData {
 

@@ -1,6 +1,5 @@
 package io.riguron.mocks.proxy;
 
-import io.riguron.mocks.MockingException;
 import io.riguron.mocks.exception.MockCreationException;
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
@@ -10,8 +9,6 @@ import org.objenesis.ObjenesisHelper;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Modifier;
-
-;
 
 public class ProxyGenerator {
 

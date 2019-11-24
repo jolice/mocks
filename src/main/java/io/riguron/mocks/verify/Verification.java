@@ -27,9 +27,9 @@ public final class Verification {
             Method method = invocation.getMethod();
 
             Map<Method, Map<Invocation, Integer>> data = invocations.getOrDefault(object, Collections.emptyMap());
-            Map<Invocation, Integer> invocations = data.getOrDefault(method, Collections.emptyMap());
+            Map<Invocation, Integer> invocationsForMethod = data.getOrDefault(method, Collections.emptyMap());
 
-            Optional<Map.Entry<Invocation, Integer>> previousInvocation = invocations
+            Optional<Map.Entry<Invocation, Integer>> previousInvocation = invocationsForMethod
                     .entrySet()
                     .stream()
                     .filter(x -> new ArgumentMatcherEvaluation(matcherCapture.getAll(), x.getKey()).evaluate())
