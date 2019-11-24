@@ -8,3 +8,12 @@ jdk:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+addons:
+  sonarcloud:
+    organization: "riguron"
+    token: "eIFWmXVkXIX7CtIW+EmM4+BRCNI9xAPV66ar8G5nl+rjjNvGQyyWrTE9+1iSmlw2wtWg/kQm+SZkeYrICTxliLetT1Dq3KZakFydfwvFjeNaZk6lWLaOFrxsPPatB09cERIrLXeTTtFRoLjiaqgVx2gQhkiS5lBtfZIWkKgi68ZwYHRqJrOrmCBmTLOJOMQ/zbp3igRJjDgBCg22D44vqTnhUo92k4hjsOk0o7qGFbTgQ0jn2orZhzzO5KhQBxUob85WS3/NE75NqP7JK8wsMefO9ILa44cGwSnvhwKPWvnkxV/MXDMOerQC0fnC+a1QZaFBYXBRTsEkI9mApKZk5d+kxdSd1UQFvQs+2NyMnaHV4xG4NjpdUbg2LXSqYCsXzuQcL3CfxT5hVJisduCm9ZmiWSDSCqQA+rxe7sxPzTUWrH3Ta9M20hDubtzeuVCjrx3UWP+P+Wa8pGwps2qK8RMBbo934jJqpzb8/2PJaMPvBNw7UwUcPQ66WHJjeP5QSX5VtulskK+JZGecsf2JFdCwRTYCgRVauZdH9mT8OpN5W2OK+oApXJgbGZ/4++MCIew6AcXvMBpBA16aE1QmroNeDY1B3II1ThDmndiG3eUClOh7jwmKu4Ih+WMmBo6qPj0TQ3DYaE0Jt+inkpHpm1BvMITYQz2BllbhvCkBepw="
+
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=riguron_Mocks
