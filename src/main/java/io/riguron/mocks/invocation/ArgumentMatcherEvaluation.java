@@ -48,7 +48,7 @@ public class ArgumentMatcherEvaluation {
                         .filter(method -> method.getParameterCount() == 1 && "matches".equals(method.getName()) && !method.isBridge())
                         .findAny()
                         .map(method -> method.getParameterTypes()[0])
-                        .get();
+                        .orElseThrow(() -> new IllegalStateException("Invalid matcher argument!"));
     }
 
     private void validateMatchers(List<ArgumentMatcher<?>> matchers, Object[] args) {

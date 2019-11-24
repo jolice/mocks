@@ -1,6 +1,5 @@
 package io.riguron.mocks.proxy;
 
-import io.riguron.mocks.MockingException;
 import io.riguron.mocks.exception.MockCreationException;
 import net.bytebuddy.ByteBuddy;
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;

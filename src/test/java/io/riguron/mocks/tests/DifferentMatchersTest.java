@@ -31,6 +31,7 @@ public class DifferentMatchersTest {
         doReturn((short) 5).when(allArguments).run(anyShort());
         doReturn((byte) 5).when(allArguments).run(anyByte());
         doReturn("X").when(allArguments).run(any());
+        doAssert();
     }
 
     @Test
@@ -46,10 +47,6 @@ public class DifferentMatchersTest {
         doReturn("X").when(allArguments).run(eq("Y"));
         doReturn(100).when(allArguments).run(argThat(new FortyTwoMatcher()));
         assertEquals(100, allArguments.run((Integer) 42));
-    }
-
-    @AfterEach
-    void runAssertion() {
         doAssert();
     }
 

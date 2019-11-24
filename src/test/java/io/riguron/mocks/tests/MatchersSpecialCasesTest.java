@@ -14,9 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class MatchersSpecialCasesTest {
 
 
-
-
-
     @Test
     void lambdaFails() {
 
@@ -29,7 +26,7 @@ public class MatchersSpecialCasesTest {
     void nullArgumentPasses() {
         SomeInterface someInterface = mock(SomeInterface.class);
         when(someInterface.run(argThat((ArgumentMatcher<String>) s -> true))).thenReturn(5);
-        someInterface.run(null);
+        assertEquals(5, someInterface.run(null));
     }
 
     @Test
