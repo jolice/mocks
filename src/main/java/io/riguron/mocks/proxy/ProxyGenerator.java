@@ -10,8 +10,6 @@ import org.objenesis.ObjenesisHelper;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Modifier;
 
-;
-
 public class ProxyGenerator {
 
     private Class<?> type;
