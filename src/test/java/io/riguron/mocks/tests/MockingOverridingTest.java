@@ -5,10 +5,16 @@ import io.riguron.mocks.classes.SomeInterface;
 import io.riguron.mocks.invocation.Invocation;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Random;
+
 import static io.riguron.mocks.Mocks.*;
 import static io.riguron.mocks.Mocks.doAnswer;
-import static io.riguron.mocks.matcher.ArgumentMatchers.eq;
+import static io.riguron.mocks.matcher.ArgumentMatchers.*;
+import static io.riguron.mocks.verify.VerificationModes.times;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class MockingOverridingTest {
 
@@ -28,6 +34,31 @@ public class MockingOverridingTest {
         //
 
     }
+
+    // Tutorial
+
+    @Test
+    void tutorial() {
+
+
+        UserRepository userRepository = mock(UserRepository.class);
+        userRepository.findNameById(1);
+        userRepository.findNameById(5);
+        verify(userRepository, times(2)).findNameById(anyInt());
+    }
+
+    interface UserRepository {
+
+        String findNameById(int id);
+
+        int count();
+
+        void updateName(int id, String name);
+    }
+
+    interface User {
+    }
+
 
     @Test
     void overridePrefixStyle() {

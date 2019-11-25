@@ -31,17 +31,15 @@ public final class Verification {
             Map<Invocation, Integer> invocationsForMethod = data.getOrDefault(method, Collections.emptyMap());
 
             List<ArgumentMatcher<?>> argumentMatchers = matcherCapture.popAll();
-            Optional<Map.Entry<Invocation, Integer>> previousInvocation = invocationsForMethod
+            int invocations = invocationsForMethod
                     .entrySet()
                     .stream()
                     .filter(x -> new ArgumentMatcherEvaluation(argumentMatchers, x.getKey()).evaluate())
-                    .findFirst();
+                    .mapToInt(Map.Entry::getValue)
+                    .sum();
 
-
-            int times = previousInvocation.map(Map.Entry::getValue).orElse(0);
-
-            if (!mode.verify(times)) {
-                throw new VerificationException(mode.error(times));
+            if (!mode.verify(invocations)) {
+                throw new VerificationException(mode.error(invocations));
             }
         });
         return object;
