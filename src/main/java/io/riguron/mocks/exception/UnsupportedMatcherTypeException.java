@@ -1,7 +1,5 @@
 package io.riguron.mocks.exception;
 
-import static io.riguron.mocks.matcher.ArgumentMatchers.eq;
-
 public class UnsupportedMatcherTypeException extends RuntimeException {
 
     public UnsupportedMatcherTypeException() {

@@ -3,6 +3,7 @@ package io.riguron.mocks.tests;
 import io.riguron.mocks.Answer;
 import io.riguron.mocks.classes.SomeInterface;
 import io.riguron.mocks.invocation.Invocation;
+import io.riguron.mocks.matcher.ArgumentMatcher;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -35,19 +36,19 @@ public class MockingOverridingTest {
 
     }
 
-    // Tutorial
 
     @Test
-    void tutorial() {
-
-
-        UserRepository userRepository = mock(UserRepository.class);
-        userRepository.findNameById(1);
-        userRepository.findNameById(5);
-        verify(userRepository, times(2)).findNameById(anyInt());
+    void mockLocal() {
+         UserRepository repository = mock(UserRepository.class);
+         when(repository.getAge(any()));
+         assertEquals(5, repository.getAge("Name"));
     }
+    // Tutorial
+
 
     interface UserRepository {
+
+        int getAge(String name);
 
         String findNameById(int id);
 

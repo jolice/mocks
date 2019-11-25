@@ -31,15 +31,15 @@ public final class Verification {
             Map<Invocation, Integer> invocationsForMethod = data.getOrDefault(method, Collections.emptyMap());
 
             List<ArgumentMatcher<?>> argumentMatchers = matcherCapture.popAll();
-            int invocations = invocationsForMethod
+            int invocationCount = invocationsForMethod
                     .entrySet()
                     .stream()
                     .filter(x -> new ArgumentMatcherEvaluation(argumentMatchers, x.getKey()).evaluate())
                     .mapToInt(Map.Entry::getValue)
                     .sum();
 
-            if (!mode.verify(invocations)) {
-                throw new VerificationException(mode.error(invocations));
+            if (!mode.verify(invocationCount)) {
+                throw new VerificationException(mode.error(invocationCount));
             }
         });
         return object;
