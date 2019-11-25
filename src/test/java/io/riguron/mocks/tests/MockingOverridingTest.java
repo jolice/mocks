@@ -37,14 +37,6 @@ public class MockingOverridingTest {
     }
 
 
-    @Test
-    void mockLocal() {
-         UserRepository repository = mock(UserRepository.class);
-         when(repository.getAge(any()));
-         assertEquals(5, repository.getAge("Name"));
-    }
-    // Tutorial
-
 
     interface UserRepository {
 
