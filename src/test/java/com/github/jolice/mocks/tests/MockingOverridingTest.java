@@ -6,7 +6,9 @@ import io.riguron.mocks.invocation.Invocation;
 import io.riguron.mocks.matcher.ArgumentMatcher;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import static io.riguron.mocks.Mocks.*;
@@ -34,22 +36,6 @@ public class MockingOverridingTest {
 
         //
 
-    }
-
-
-
-    interface UserRepository {
-
-        int getAge(String name);
-
-        String findNameById(int id);
-
-        int count();
-
-        void updateName(int id, String name);
-    }
-
-    interface User {
     }
 
 

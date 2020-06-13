@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MocksExtension.class)
-public class ExtensionTest {
+public class YourTest {
 
     @Mock
     private SomeInterface someInterface;
